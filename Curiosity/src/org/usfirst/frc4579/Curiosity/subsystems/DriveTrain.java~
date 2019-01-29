@@ -209,6 +209,15 @@ public class DriveTrain extends Subsystem {
 	    rightMotors.set(speed - halfCorrection); 
     }
     
+    // Drive method that uses joeyStickDrive and allows you to invert your direction and drive backwards
+    public void competitionDrive(){
+    	boolean inverseDrive = Robot.oi.joystick.getRawButton(9);
+    	
+    	if(!inverseDrive){
+    		Robot.driveTrain.joeyStickDrive(-Robot.oi.joystick.getY(), Robot.oi.joystick.getX());
+    	}
+    }
+    
     public void stop(){
     	leftMotors.stopMotor();
     	rightMotors.stopMotor();

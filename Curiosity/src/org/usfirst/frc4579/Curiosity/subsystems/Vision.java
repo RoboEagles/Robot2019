@@ -52,59 +52,59 @@ public class Vision extends Subsystem {
 	
 	//Initializes the vision subsystem
 	public void initVision(){
-		initCameraSettings();
-		cameraThread.start();
+//		initCameraSettings();
+//		cameraThread.start();
 //		initCameras();
 		System.out.println("Vision: ***Finished initializing Vision subsystem***");
 	}
 	
 	//Thread that runs all the camera code
-	Thread cameraThread = new Thread(() -> {
-		System.out.println("Starting Camera Thread");
-		
-		System.out.println("Camera thread started up");
-		while(!Thread.interrupted()){
-			updateImage();
-		}
-	});
+//	Thread cameraThread = new Thread(() -> {
+//		System.out.println("Starting Camera Thread");
+//		
+//		System.out.println("Camera thread started up");
+//		while(!Thread.interrupted()){
+//			updateImage();
+//		}
+//	});
 	
 	//Sets the camera settings, such as resolution and FPS
 	public void initCameraSettings(){
-		mainCamera.setResolution(resolution_HEIGHT,resolution_WIDTH);
-		mainCamera.setFPS(30);
-		
-		secondCamera.setResolution(resolution_HEIGHT,resolution_WIDTH);
-		secondCamera.setFPS(30);
+//		mainCamera.setResolution(resolution_HEIGHT,resolution_WIDTH);
+//		mainCamera.setFPS(30);
+//		
+//		secondCamera.setResolution(resolution_HEIGHT,resolution_WIDTH);
+//		secondCamera.setFPS(30);
 	}
 	
 	// Switches which camera is set as the input stream
 	public void switchCamera(){
-		currentCamera = (short) ((++currentCamera)%2);
-		
-		System.out.println("Now running camera #" + currentCamera);
-		
-		switch (currentCamera){
-			case 0:
-				inputStream.setSource(mainCamera);
-				break;
-			case 1:
-				inputStream.setSource(secondCamera);
-				break;
-		}
+//		currentCamera = (short) ((++currentCamera)%2);
+//		
+//		System.out.println("Now running camera #" + currentCamera);
+//		
+//		switch (currentCamera){
+//			case 0:
+//				inputStream.setSource(mainCamera);
+//				break;
+//			case 1:
+//				inputStream.setSource(secondCamera);
+//				break;
+//		}
 	}
 
 	// Pulls an image from the input stream and puts it into the output stream
 	public void updateImage(){		
-		// Tries to get frame from a camera
-		try{
-			inputStream.grabFrame(image);
-			
-			// Tries to put a frame onto the output stream
-			outputStream.putFrame(image);
-		}
-		catch(Exception e){
-			System.out.println("Couldn't get frame from input stream");
-		}
+//		// Tries to get frame from a camera
+//		try{
+//			inputStream.grabFrame(image);
+//			
+//			// Tries to put a frame onto the output stream
+//			outputStream.putFrame(image);
+//		}
+//		catch(Exception e){
+//			System.out.println("Couldn't get frame from input stream");
+//		}
 	}
 	
     @Override

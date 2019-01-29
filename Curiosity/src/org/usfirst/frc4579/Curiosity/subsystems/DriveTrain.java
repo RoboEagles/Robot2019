@@ -56,6 +56,8 @@ public class DriveTrain extends Subsystem {
     private FirstOrderLPF gyro     = new FirstOrderLPF(0.9);
     
     public double angle = 0.0;
+
+    public boolean isDriveInverted = false;
     
  // Return true if the motors are commanded to zero.
     public boolean isNotMoving() {   
@@ -207,6 +209,20 @@ public class DriveTrain extends Subsystem {
 	    double halfCorrection = ((Robot.measurement.getAngleRate() * .006) + ((Robot.measurement.getAngle()-reference) * .028)) /2.0;
 	    leftMotors.set(speed + halfCorrection);
 	    rightMotors.set(speed - halfCorrection); 
+    }
+    
+    // Drive method that uses joeyStickDrive and allows you to invert your direction and drive backwards
+    public void competitionDrive(){
+    	if(!isDriveInverted){
+    		Robot.driveTrain.joeyStickDrive(-Robot.oi.joystick.getY(), Robot.oi.joystick.getX());
+    	}
+    	else{
+    		Robot.driveTrain.joeyStickDrive(Robot.oi.joystick.getY(), -Robot.oi.joystick.getX());
+    	}
+    }
+    
+    public void invertDrive(){
+    	isDriveInverted = !isDriveInverted;
     }
     
     public void stop(){

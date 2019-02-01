@@ -122,10 +122,10 @@ public class DriveTrain extends Subsystem {
 		leftMotors.set(vLeft2);
 		
 		//Prints out info from driving control loop
-		if (Math.abs(turn) >= 0.05 || Math.abs(frwd) >= 0.05) { 
-		System.out.printf("%6.3f  %6.3f  %6.3f  %6.3f  %6.3f  %6.3f  %7.6f  %7.6f  %6.3f\n", 
-				   frwd, turn, sensitivity, speed, vLeft, vRite, omega, gz, correction);
-		}
+//		if (Math.abs(turn) >= 0.05 || Math.abs(frwd) >= 0.05) { 
+//		System.out.printf("%6.3f  %6.3f  %6.3f  %6.3f  %6.3f  %6.3f  %7.6f  %7.6f  %6.3f\n", 
+//				   frwd, turn, sensitivity, speed, vLeft, vRite, omega, gz, correction);
+//		}
 		
 		return;
 	}  // End of joeyStickDrive().

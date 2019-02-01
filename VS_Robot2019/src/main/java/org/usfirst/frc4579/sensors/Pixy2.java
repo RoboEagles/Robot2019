@@ -1,4 +1,4 @@
-package sensors;
+package org.usfirst.frc4579.sensors;
 
 public class Pixy2 {
 
